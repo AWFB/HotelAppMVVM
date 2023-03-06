@@ -19,7 +19,7 @@ namespace HotelAppMVVM.Models
 
         public override string ToString()
         {
-            return $"{FloorNumber}{RoomNumber}";
+            return $"{FloorNumber}-{RoomNumber}";
         }
 
         public override bool Equals(object obj)
