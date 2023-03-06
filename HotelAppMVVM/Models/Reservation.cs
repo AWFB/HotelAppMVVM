@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace HotelAppMVVM.Models
 {
-    internal class Reservation
+    public class Reservation
     {
+        public Reservation(RoomId roomId, DateTime startTime, DateTime endTime, string username)
+        {
+            RoomId = roomId;
+            StartTime = startTime;
+            EndTime = endTime;
+            Username = username;
+        }
+
+        public string Username { get; }
+        public RoomId RoomId { get; }
+        public DateTime StartTime { get; }
+        public DateTime EndTime { get; }
+        public TimeSpan Length => EndTime.Subtract(StartTime);
+
+        public bool Conflicts(Reservation reservation)
+        {
+            if (reservation.RoomId != RoomId)
+            {
+                return false;
+            }
+
+            return reservation.StartTime < EndTime && reservation.EndTime > StartTime;
+        }
     }
 }
