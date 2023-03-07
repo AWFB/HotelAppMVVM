@@ -13,7 +13,7 @@ public class MakeReservationViewModel : ViewModelBase
     public ICommand CancelCommand { get; }
 
     public MakeReservationViewModel(
-        Hotel hotel, 
+        HotelStore hotel, 
         NavigationService reservationViewNavigationService)
     {
         SubmitCommand = new MakeReservationCommand(this, hotel, reservationViewNavigationService);

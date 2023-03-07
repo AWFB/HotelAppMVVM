@@ -21,15 +21,5 @@ namespace HotelAppMVVM.Models
         public DateTime StartTime { get; }
         public DateTime EndTime { get; }
         public TimeSpan Length => EndTime.Subtract(StartTime);
-
-        public bool Conflicts(Reservation reservation)
-        {
-            if (reservation.RoomId != RoomId)
-            {
-                return false;
-            }
-
-            return reservation.StartTime < EndTime && reservation.EndTime > StartTime;
-        }
     }
 }
